@@ -1,9 +1,9 @@
 <script setup lang="ts">
-import BlurHashCanvas from './BlurHashCanvas.vue'
+import BlurHashCanvas from '../lib/BlurHashCanvas.vue'
 </script>
 
 <template>
-  <Story title="BlurHashCanvas" :layout="{ type: 'grid', width: '164px' }">
+  <Story title="Blur Hash Canvas" :layout="{ type: 'grid', width: '164px' }">
     <Variant title="demo 1">
       <blur-hash-canvas hash="LEHV6nWB2yk8pyoJadR*.7kCMdnj" />
     </Variant>
