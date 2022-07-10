@@ -1,5 +1,5 @@
 <script setup lang="ts">
-import { computed, ref } from 'vue'
+import { ref } from 'vue'
 import BlurHashCanvas from './BlurHashCanvas.vue'
 
 type BlurHashCanvasProps = {
@@ -9,9 +9,8 @@ type BlurHashCanvasProps = {
   punch?: number
   src: string
   srcset?: string | undefined
-  transitionDuration?: number | string
 }
-const props = withDefaults(defineProps<BlurHashCanvasProps>(), {
+withDefaults(defineProps<BlurHashCanvasProps>(), {
   width: 128,
   height: 128,
   punch: 1,
@@ -20,46 +19,43 @@ const props = withDefaults(defineProps<BlurHashCanvasProps>(), {
 })
 
 const imageLoaded = ref(false)
-const cssVars = computed(() => ({
-  transitionDuration: props.transitionDuration > 0 ? `${props.transitionDuration}s` : 'none'
-}))
+
+defineExpose({
+  imageLoaded,
+})
 </script>
 <template>
-  <div style="position: relative;">
-    <transition-group
-      mode="in-out"
-      name="fade"
-      style="height: 100%; width: 100%; position: absolute; top: 0; left: 0; right: 0; bottom: 0;"
-    >
-      <blur-hash-canvas
-        v-if="!imageLoaded"
-        key="canvas"
-        :hash="hash"
-        :width="width"
-        :height="height"
-        :punch="punch"
-        style="height: 100%; width: 100%; position: absolute; top: 0; left: 0; right: 0; bottom: 0;"
-      />
-      <img
-        key="img"
-        v-bind="$attrs"
-        v-show="imageLoaded"
-        :src="src"
-        :srcset="srcset"
-        @load="imageLoaded = true"
-        style="height: 100%; width: 100%; position: absolute; top: 0; left: 0; right: 0; bottom: 0;"
-      />
-    </transition-group>
+  <div class="parent">
+    <blur-hash-canvas
+      v-show="!imageLoaded"
+      class="child"
+      key="canvas"
+      :hash="hash"
+      :width="width"
+      :height="height"
+      :punch="punch"
+    />
+    <img
+      key="img"
+      v-bind="$attrs"
+      v-show="imageLoaded"
+      class="child"
+      :width="width"
+      :height="height"
+      :src="src"
+      :srcset="srcset"
+      @load="imageLoaded = true"
+    />
   </div>
 </template>
 
 <style scoped>
-.fade-enter-active,
-.fade-leave-active {
-  transition: opacity v-bind("cssVars.transitionDuration");
+.parent {
+  display: grid;
+  grid-template: 1fr / 1fr;
 }
-.fade-enter,
-.fade-leave-to {
-  opacity: 0;
+
+.child {
+  grid-area: 1 / 1 / 2 / 2;
 }
 </style>
