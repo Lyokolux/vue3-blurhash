@@ -18,6 +18,6 @@ jobs:
           yarn story:build
 
       - name: Deploy 🚀
-        uses: Lyokolux/github-pages-deploy-action@v4
+        uses: Lyokolux/vu3-blurhash@v4
         with:
           folder: .histoire/dist # The folder the action should deploy.
