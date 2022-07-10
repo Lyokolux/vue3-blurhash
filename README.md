@@ -1,4 +1,4 @@
-# vue3-blurhash
+# another-vue3-blurhash
 
 <p align="center">
   <img src="./vue-blurhash.jpg" alt="Blurhash vuejs plugin">
