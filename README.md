@@ -6,6 +6,8 @@
 
 > VueJS components using the [blurhash algorithm](https://blurha.sh)
 
+![https://img.shields.io/badge/versioning-semver-green](https://img.shields.io/badge/versioning-semver-green)
+
 This package is a rewrite and maintened one of the original [vue-blurhash](https://github.com/damienroche/vue-blurhash).
 Feel free to open an issue if there is a need for improvements 🦊
 
