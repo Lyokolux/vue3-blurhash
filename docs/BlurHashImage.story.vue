@@ -3,7 +3,7 @@ import { ref, watchEffect } from 'vue'
 import { HstCheckbox } from 'histoire/dist/controls' 
 import BlurHashImage from '../lib/BlurHashImage.vue'
 
-const WIDTH_STORY_SHIFT = 2
+const WIDTH_STORY_SHIFT = 35
 
 const props = [
   { hash: 'LEHV6nWB2yk8pyoJadR*.7kCMdnj', width: 269, height: 173 },
@@ -17,21 +17,21 @@ const imageLoadedRef = ref(true)
 
 watchEffect(() => {
   if (blurhashRef.value) {
-    blurhashRef.value.imageLoaded  = imageLoadedRef.value
+    blurhashRef.value.imageLoaded = imageLoadedRef.value
   }
 })  
 
 </script>
 
 <template>
-  <Story title="Blur Hash Image" :layout="{ type: 'grid', width: Math.max(...props.map(({width}) => width)) + WIDTH_STORY_SHIFT }">
+  <Story title="Blur Hash Image" :layout="{ type: 'grid', width: Math.max(...props.map(({width}) => width)) + WIDTH_STORY_SHIFT, height: Math.max(...props.map(({height}) => height)) }">
     <Variant v-for="(prop, index) in props" :key="prop.hash" :title="`demo ${index + 1}`">
         <blur-hash-image :src="`/img${index + 1}.jpg`" v-bind="prop" />
     </Variant>
     <Variant title="Control Loading">
       <blur-hash-image ref="blurhashRef" :src="`/img1.jpg`" v-bind="props[0]" />
       <template #controls>
-      <HstCheckbox title="isLoading" v-model="imageLoadedRef" />
+      <HstCheckbox title="image is loading" v-model="imageLoadedRef" />
       </template>
     </Variant>
   </Story>

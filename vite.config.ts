@@ -42,5 +42,9 @@ export default defineConfig({
       },
     },
   },
-  histoire: {}
+  histoire: {
+    theme: {
+      title: "Vue3 Bluehash"
+    }
+  }
 })

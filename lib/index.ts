@@ -1,5 +1,5 @@
 import type { Plugin } from 'vue'
-import { encode, decode } from 'blurhash'
+import blurhash from 'blurhash'
 import BlurHashCanvas from './BlurHashCanvas.vue'
 import BlurhashImage from './BlurHashImage.vue'
 
@@ -14,6 +14,5 @@ export {
   plugin as default,
   BlurHashCanvas,
   BlurhashImage,
-  encode,
-  decode
+  blurhash,
 }
