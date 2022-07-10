@@ -24,7 +24,7 @@ yarn add vue-blurhash
 2. Use the plugin
 ```javascript
 import Vue from 'vue'
-import VueBlurHash from 'vue3-blurhash'
+import VueBlurHash from 'another-vue3-blurhash'
 
 ...
 
@@ -46,9 +46,9 @@ Vue.use(VueBlurHash)
 Check the examples: http://vue3-blurhash.vercel.app/
 
 
-Or use it to encode a 
+Or use it to generate a blurhash in the browser: 
 ```typescript
-import { encode } from 'vue3-blurhash'
+import { encode } from 'another-vue3-blurhash'
 
 const BlurhashEncoding = {
   // blurhash encoding precision
