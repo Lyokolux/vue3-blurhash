@@ -11,7 +11,6 @@
   ],
   "license": "MIT",
   "scripts": {
-    "dev": "vite",
     "build": "run-p type-check build-only",
     "build-only": "vite build",
     "preview": "vite preview --port 4173",
