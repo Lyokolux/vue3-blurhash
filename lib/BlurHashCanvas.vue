@@ -28,5 +28,5 @@ onMounted(draw)
 </script>
 
 <template>
-  <canvas ref="canvas" :width="width" :height="height" style="object-fit: contain;" />
+  <canvas ref="canvas" :width="width" :height="height" />
 </template>
