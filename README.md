@@ -19,8 +19,8 @@ You need [Vue.js](https://vuejs.org/) **version 3.0+**
 
 1. Install the package
 ```bash
-npm install vue-blurhash
-yarn add vue-blurhash
+npm install another-vue3-blurhash
+yarn add another-vue3-blurhash
 ```
 
 2. Use the plugin
