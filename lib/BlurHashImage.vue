@@ -25,10 +25,10 @@ defineExpose({
 })
 </script>
 <template>
-  <div class="parent">
+  <div class="vue-blur-hash-parent">
     <blur-hash-canvas
       v-show="!imageLoaded"
-      class="child"
+      class="vue-blur-hash-child"
       key="canvas"
       :hash="hash"
       :width="width"
@@ -39,7 +39,7 @@ defineExpose({
       key="img"
       v-bind="$attrs"
       v-show="imageLoaded"
-      class="child"
+      class="vue-blur-hash-child"
       :width="width"
       :height="height"
       :src="src"
@@ -50,12 +50,13 @@ defineExpose({
 </template>
 
 <style scoped>
-.parent {
+.vue-blur-hash-parent {
   display: grid;
   grid-template: 1fr / 1fr;
 }
 
-.child {
+.vue-blur-hash-child {
   grid-area: 1 / 1 / 2 / 2;
+  max-width: 100%;
 }
 </style>
